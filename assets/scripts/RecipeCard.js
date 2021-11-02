@@ -133,22 +133,22 @@ class RecipeCard extends HTMLElement {
     }
     let star = document.createElement('img');
     if (span.innerHTML > 4 || span.innerHTML <= 5) {
-      star.setAttribute('src', "assets/images/icons/5-star.svg");
+      star.setAttribute('src', "./assets/images/icons/5-star.svg");
       star.setAttribute('alt', '5 stars');
     } else if (span.innerHTML > 3 || span.innerHTML <= 4) {
-      star.setAttribute('src', "assets/images/icons/4-star.svg");
+      star.setAttribute('src', "./assets/images/icons/4-star.svg");
       star.setAttribute('alt', '4 stars');
     } else if (span.innerHTML > 2 || span.innerHTML <= 3) {
-      star.setAttribute('src', "assets/images/icons/3-star.svg");
+      star.setAttribute('src', "./assets/images/icons/3-star.svg");
       star.setAttribute('alt', '3 stars'); 
     } else if (span.innerHTML > 1 || span.innerHTML <= 2) {
-      star.setAttribute('src', "assets/images/icons/2-star.svg");
+      star.setAttribute('src', "./assets/images/icons/2-star.svg");
       star.setAttribute('alt', '2 stars');
     } else if (span.innerHTML > 0 || span.innerHTML <= 1) {
-      star.setAttribute('src', "assets/images/icons/1-star.svg");
+      star.setAttribute('src', "./assets/images/icons/1-star.svg");
       star.setAttribute('alt', '1 stars');
     } else {
-      star.setAttribute('src', "assets/images/icons/0-star.svg");
+      star.setAttribute('src', "./assets/images/icons/0-star.svg");
       star.setAttribute('alt', '0 stars');
     }
     rating.appendChild(span);
