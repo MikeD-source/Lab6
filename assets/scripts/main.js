@@ -41,9 +41,28 @@ async function fetchRecipes() {
 
     // For part 2 - note that you can fetch local files as well, so store any JSON files you'd like to fetch
     // in the recipes folder and fetch them from there. You'll need to add their paths to the recipes array.
-
-    // Part 1 Expose - TODO
+    let resolved = 0;
+    for (let i = 0; i < recipes.length; ++i) {
+      fetch(recipes[i])
+      .then(response => 
+        response.json()
+      )
+      .then(data => {
+        recipeData[recipes[i]] = data
+        if(recipes[i] in recipeData) {
+          resolved += 1;
+        }
+        if(resolved == recipes.length) {
+          resolve(true)
+        }
+      })
+      .catch(error => {
+        reject(false)
+      });    
+    }
+    
   });
+  
 }
 
 function createRecipeCards() {
@@ -52,8 +71,17 @@ function createRecipeCards() {
   // files with the recipeData Object above. Make sure you only display the 
   // three recipes we give you, you'll use the bindShowMore() function to
   // show any others you've added when the user clicks on the "Show more" button.
-
-  // Part 1 Expose - TODO
+  let main = document.querySelector('main')
+  console.log(recipeData);
+  for (const recipe in recipeData) {
+    let recipeCard = document.createElement ('recipe-card');
+    recipeCard.data = recipeData[recipe];
+    main.appendChild(recipeCard);
+  }
+ 
+  
+ 
+  
 }
 
 function bindShowMore() {
